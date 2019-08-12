@@ -12,12 +12,14 @@ class PubsController < ApplicationController
 
     def new 
         #@pub = Pub.new
+        @pub = current_user.pubs.build
         @types = Type.all.map{ |t| [t.name, t.id] }
     end
 
     def create
         @pub = Pub.create(pub_params)
         @pub.type_id = params[:type_id]
+        @pub.user_id = current_user.id
         @pub.save
        # raise @pub.inspect
         redirect_to pubs_path
@@ -27,6 +29,7 @@ class PubsController < ApplicationController
     end
 
     def update
+        @pub.type_id = params[:type_id]
         @pub.update(pub_params)
         redirect_to pubs_path
     end

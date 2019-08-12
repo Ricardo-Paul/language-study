@@ -1,4 +1,5 @@
 <%= simple_form_for(@pub) do |f| %>
+<%= f.collection_select(:type_id, Type.all, :id, :name, :prompt => "Pick a category" ) %>
     <%= f.input :content, as: :text, placeholder: "Share something or ask a question", required: true, hint: "this publication will be public" %>
     <%= f.submit %>
 <% end %>

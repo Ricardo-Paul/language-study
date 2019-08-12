@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_165206) do
+ActiveRecord::Schema.define(version: 2019_08_12_203328) do
 
   create_table "pubs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "content"
     t.integer "type_id"
+    t.integer "user_id"
   end
 
   create_table "types", force: :cascade do |t|
