@@ -1,0 +1,4 @@
+<%= simple_form_for(@pub) do |f| %>
+    <%= f.input :content, as: :text, placeholder: "Share something or ask a question", required: true, hint: "this publication will be public" %>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,15 @@
+
+
+<% @pubs.each do |pub| %>
+    <div class="card">
+            <div class="card-header">
+                <%= link_to "show", pub_path(pub) %>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p> <%= pub.content %> </p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+              </blockquote>
+            </div>
+    </div>
+<% end %>
