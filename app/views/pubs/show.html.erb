@@ -13,6 +13,9 @@
   <%= render @pub.answers %>
 </div>
 
-    <%= link_to "Edit", edit_pub_path %>
+<% if user_signed_in? && @pub.user_id == current_user.id %>
+    <%= link_to "Edit", edit_pub_path %> |
     <%= link_to "Delete", pub_path(@pub), method: :delete, data:{confirm:"You're about to delete"} %>
-    <%= link_to "Write an answer", new_pub_answer_path(@pub) %>
+<% end %>
+
+    <p class="link">   <%= link_to "Write an answer", new_pub_answer_path(@pub) %>  </p>
