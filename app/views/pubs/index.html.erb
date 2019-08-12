@@ -1,6 +1,6 @@
 
 
-
+<% if user_signed_in? %>
 <% @pubs.each do |pub| %>
     <div class="card">
             <div class="card-header">
@@ -14,5 +14,8 @@
             </div>
     </div>
 <% end %>
-
 <%= link_to "Publish Something", new_pub_path %>
+<% else %>
+  <h2> Please Sign in to see other students are sharing ... </h2>
+<% end %>
+

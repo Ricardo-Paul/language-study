@@ -11,7 +11,7 @@ class PubsController < ApplicationController
     end
 
     def new 
-        @pub = Pub.new
+        #@pub = Pub.new
         @types = Type.all.map{ |t| [t.name, t.id] }
     end
 
