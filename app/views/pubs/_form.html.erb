@@ -1,4 +1,5 @@
 <%= simple_form_for(@pub) do |f| %>
+    <%= select_tag(:type_id, options_for_select(@types), prompt: "Publication Type" ) %>
     <%= f.input :content, as: :text, placeholder: "Share something or ask a question", required: true, hint: "this publication will be public" %>
     <%= f.submit %>
 <% end %>
