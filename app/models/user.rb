@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         # before_action :authenticate_user!
         has_many :pubs
+        has_many :answers
 end

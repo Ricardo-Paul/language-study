@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_203328) do
+ActiveRecord::Schema.define(version: 2019_08_12_223946) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "pub_id"
+  end
 
   create_table "pubs", force: :cascade do |t|
     t.datetime "created_at", null: false

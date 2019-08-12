@@ -9,5 +9,10 @@
             </div>
     </div>
 
+<div>
+  <%= render @pub.answers %>
+</div>
+
     <%= link_to "Edit", edit_pub_path %>
     <%= link_to "Delete", pub_path(@pub), method: :delete, data:{confirm:"You're about to delete"} %>
+    <%= link_to "Write an answer", new_pub_answer_path(@pub) %>
