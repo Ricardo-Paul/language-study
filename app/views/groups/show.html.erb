@@ -1,0 +1,17 @@
+
+<p> Group Creator </p>
+<%= @group.users.map.first.name %>
+
+<br>
+<br>
+
+<p> Group Name: </p> <%= @group.name %>
+
+<br>
+<br>
+
+<h4> Group Description: </h4> <%= @group.description %> <br>
+
+<h3\> Add User: </h3> <br>
+
+<%= render partial: 'add_member_form', locals: {group: @group} %>

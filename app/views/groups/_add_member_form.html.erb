@@ -1,0 +1,6 @@
+<%= form_for group, :url => group_add_user_path(group) do |f| %>
+    <%= f.fields_for :users, group.users.build do |user_fields|%>
+        <%= user_fields.text_field :name %>
+        <%= user_fields.submit %>
+    <% end %>
+<% end %>

@@ -6,4 +6,8 @@ class User < ApplicationRecord
         # before_action :authenticate_user!
         has_many :pubs
         has_many :answers
+
+        has_many :memberships
+        has_many :groups, through: :memberships
+
 end
