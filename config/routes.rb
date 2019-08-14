@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'groups/new'
   get 'answers/new'
+  get 'errors' => 'groups#error'
   devise_for :users
 
   resources :pubs do 
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
 
   resources :users
   root 'pubs#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

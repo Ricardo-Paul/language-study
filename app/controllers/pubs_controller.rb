@@ -22,12 +22,11 @@ class PubsController < ApplicationController
     end
 
     def create
-        @pub = Pub.create(pub_params)
-        @pub.type_id = params[:type_id]
-        @pub.user_id = current_user.id
-        @pub.save
-       # raise @pub.inspect
-        redirect_to pubs_path
+            @pub = Pub.create(pub_params)
+            @pub.type_id = params[:type_id]
+            @pub.user_id = current_user.id
+            @pub.save
+            redirect_to pubs_path
     end
 
     def edit

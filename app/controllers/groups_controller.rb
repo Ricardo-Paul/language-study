@@ -6,12 +6,14 @@ class GroupsController < ApplicationController
   end
 
   def show
-    find_group
+   # find_group
+   find_group
   end
 
   def create
     @group = Group.create(group_params)
     @group.users << current_user
+    current_user.groups << @group
     if @group.save
       flash[:notice] = "Group Created"
       redirect_to group_path(@group)
@@ -19,12 +21,22 @@ class GroupsController < ApplicationController
   end
 
   def add_user
+   # redirect_to :error unless @user
+    find_group
     find_and_add_user
+    redirect_to group_path(@group)
+  end
+
+
+
+
+  def error 
+    render plain: "Error"
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, :memberships)
+    params.require(:group).permit(:id, :name, :description, :memberships)
   end
 
   def new_group_user_params
@@ -32,16 +44,9 @@ class GroupsController < ApplicationController
   end
 
   def find_group
-    @group = Group.find_by(params[:id])
-  end
-
-  def find_user
-    @user = User.find_by(:name => new_group_user_params[:name])
-    #User.find_by(:name => "Rachid")
-  end
-
-  def unfound
-    "We can't find  #{new_group_user_params[:name]} please try with another name"
+   # @group = Group.find(params[:id])
+   id = params[:group_id] || params[:id]
+  @group = Group.find(id)
   end
 
 end
