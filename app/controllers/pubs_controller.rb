@@ -5,10 +5,13 @@ class PubsController < ApplicationController
     def index
         @pubs = Pub.all
         #aise params[:type].inspect
-        #@pubs = Pub.all.order("updated_at DESC")
+        @pubs = Pub.all.order("updated_at DESC")
         if params[:type]
             @type_id = Type.find_by(name: params[:type]).id
             @pubs = Pub.where(type_id: @type_id)
+        end
+        if user_signed_in?
+        @group = Group.where(:user_id => current_user.id)
         end
     end
 

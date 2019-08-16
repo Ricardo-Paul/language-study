@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  
   get 'groups/new'
   get 'answers/new'
-  get 'errors' => 'groups#error'
+  get 'bootfront/page1'
   devise_for :users
 
   resources :pubs do 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :groups do 
     patch 'add_user'
     resources :users, only: [:create]
+    resources :group_pubs
   end
 
   resources :users

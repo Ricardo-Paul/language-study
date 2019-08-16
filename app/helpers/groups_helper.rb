@@ -3,9 +3,18 @@ module GroupsHelper
     def find_and_add_user
        find_user
        find_group
-        @user.groups << @group
-        raise @group.inspect
-        flash[:notice] = "User Added"
+
+      if find_group && find_user
+          if !@user.groups.include?(@group)
+            @user.groups << @group
+            flash[:notice] = success
+          else
+            flash[:alert] = included
+          end
+      else
+          flash[:alert] = unfound
+      end
+
     end
 
     
@@ -20,6 +29,10 @@ module GroupsHelper
 
       def success 
         " Succesful added  #{new_group_user_params[:name]} "
+      end
+
+      def included
+        " #{new_group_user_params[:name]} has already been added to this group "
       end
 
 end

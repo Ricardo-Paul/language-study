@@ -6,8 +6,9 @@ class GroupsController < ApplicationController
   end
 
   def show
-   # find_group
    find_group
+  # @group_pub = GroupPub.new
+   @group_pub = current_user.group_pubs.build
   end
 
   def create

@@ -1,74 +1,116 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-      </a>
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/pubs">
-          Home
-        </a>
-  
-        <a class="navbar-item" href="/pubs/new">
-          Ask / Share
-        </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Admin Area | Dashboard</title>
+      <!-- Bootstrap core CSS -->
+      <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/stylesheets/style.css" rel="stylesheet">
+      <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
+    </head>
+    <body>
 
-            <% if !user_signed_in? %>
-            <a class="button is-primary" rel="nofollow" href="/users/sign_in" >
-              <strong>Log in </strong>
-            </a>
-
-            <a class="button is-light"  href="/users/sign_up">
-              Sign Up
-            </a>
-
-            <% else %>
-              <a class="button is-light" data-method="delete" href="/users/sign_out">
-              Sign Out
-            </a>
-            <% end %>
-
-            
-
-          </div>
-        </div>
-      </div>
+        <div > <header style="height: 1em" ></header> </div>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color ">
+              <div class="navbar-nav mr-auto">                  <!--<a class="nav-item nav-link" href="#">Recipes</a>-->
+                  <a class="nav-item nav-link" href="/pubs"> Home </a>
+              </div>
+          
+              <div class="nav navbar-right">
+                <li class="nav-item dropdown">
+                  <% if user_signed_in? %>
+                  <a class="btn btn-secondary btn-sm" href="/pubs/new" id="navbarDropdown" role="button" 
+                    aria-expanded="false">
+                    Share Somthing OR ask a question
+                  </a>
+                  <% end %>
+                  <div class="dropdown-content">
+                      <% if !user_signed_in? %>
+                      <li><a class="dropdown-item" href="users/sign_up">Sign up</a></li>
+                      <li><a class="dropdown-item" href="users/sign_in">Sign in</a></li>
+                      <% else %>
+                      <li><div class="dropdown-divider"></div></li>
+                      <li><a class="dropdown-item" data-method="delete" href="/users/sign_out" bg-dark >Sign out</a></li>
+                      <% end %>
+                </div>
+                </li>
+              </div>
+          </nav>
 
 
-    </div>
-  </nav>
+          
+
+
+
+<header id="header" style="height:2em" >
+
+</header>
+
+
+
+  <script>
+      CKEDITOR.replace( 'editor1' );
+  </script>
+ 
+     <!-- Bootstrap core JavaScript
+     ================================================== -->
+     <!-- Placed at the end of the document so the pages load faster -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   </body>
+ </html>
+ 
+
+ <style>
+navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    height: 4em;
+}
+
+.align-items-start {
+    -ms-flex-align: start!important;
+    align-items: flex-start!important;
+    background: #e6edfb;
+    /* border-radius: 15px; */
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    float: right;
+}
+.dropdown {
+    position: relative;
+    margin-bottom: 5em;
+}
+
+.nav {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: -85px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    padding-top: -0px;
+}
+
+.nav {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: -70px;
+}
+
+.dropdown {
+    position: relative;
+    margin-bottom: 5em;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+ </style>

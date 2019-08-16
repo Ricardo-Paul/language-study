@@ -15,3 +15,20 @@
 <h3\> Add User: </h3> <br>
 
 <%= render partial: 'add_member_form', locals: {group: @group} %>
+
+<br> <br>
+
+<h2> Group Members </h2>
+<% @group.users.each do |user| %>
+    <%= user.name %>
+<% end %>
+
+<br> <br>
+
+<h2> Share With Your Peers </h2> <br>
+<%= render partial: 'group_pubs/group_pub_form', locals: {group: @group, group_pub: @group_pub} %>
+
+<% @group.group_pubs.each do |pub| %>
+    <%= pub.content %>
+<% end %>
+
