@@ -25,6 +25,6 @@ class AnswersController < ApplicationController
   end
 
   def find_pub
-    @pub = Pub.find_by(params[:id])
+    @pub = Pub.find(params[:id] || params[:pub_id] )
   end
 end
