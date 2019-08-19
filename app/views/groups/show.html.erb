@@ -1,34 +1,87 @@
 
-<p> Group Creator </p>
+
+<div class="row row-one">
+        <div class="col-md-4">
+                <p> Group Name: </p> <%= @group.name %>
+                <p> Group Admin </p>
+                <%= @group.users.first.name %>
+        </div>
+        
+        <div class="col-md-4">
+                <h4> Group Description: </h4> <%= @group.description %> <br>
+                <h3\> Add User: </h3> <br>
+                <%= render partial: 'add_member_form', locals: {group: @group} %>
+        </div>
+        
+        <div class="col-md-4">
+                <h2> Group Members </h2>
+                <% @group.users.each do |user| %>
+                    <%= user.name %>
+                <% end %>        
+        </div>
+</div>
+
+<br> <br> <br>
+
+<div class="row">
+    <div class="col-md-4">
+            <h2> Share With Your Peers </h2> <br>
+            <%= render partial: 'group_pubs/group_pub_form', locals: {group: @group, group_pub: @group_pub} %>
+    </div>
+
+    <div class="col-md-8">
+        <% @group.group_pubs.each do |pub| %>
+            <div class="alert alert-primary" role="alert">
+                    <%= pub.content %>
+            </div>
+        <% end %>
+    </div>
+
+</div>
 
 
-<br>
-<br>
+<style>
+    .row-one{
+        margin-right: -15px;
+    margin-left: -15px;
+    background-color: #fcfcff;
+    padding-bottom: 60px;
+    }
 
-<p> Group Name: </p> <%= @group.name %>
 
-<br>
-<br>
+.form-control {
+    display: inline;
+    width: 250px;
+    height: 34px;
+    /* padding: 6px 12px; */
+    font-size: 14px;
+    line-height: 30;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    vertical-align: bottom;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
 
-<h4> Group Description: </h4> <%= @group.description %> <br>
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    margin-bottom: 5px;
+    display: block;
+    line-height: inherit;
+}
 
-<h3\> Add User: </h3> <br>
+.my-input {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 200px;
+    width: 100%;
+}
 
-<%= render partial: 'add_member_form', locals: {group: @group} %>
-
-<br> <br>
-
-<h2> Group Members </h2>
-<% @group.users.each do |user| %>
-    <%= user.name %>
-<% end %>
-
-<br> <br>
-
-<h2> Share With Your Peers </h2> <br>
-<%= render partial: 'group_pubs/group_pub_form', locals: {group: @group, group_pub: @group_pub} %>
-
-<% @group.group_pubs.each do |pub| %>
-    <%= pub.content %>
-<% end %>
-
+</style>

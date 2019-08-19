@@ -17,26 +17,27 @@
 </div>
 
 
-<div>
-  <%= render @pub.answers %>
+<div class="row">
+  <div class="col-md-5">
+      <%= render @pub.answers %>
+  </div>  
+
+  <div class="col-md-7">
+      <% if user_signed_in? && @pub.user_id == current_user.id %>
+      <a  href="/pubs/<%=@pub.id%>/edit/" class="btn btn-primary float-left" > EDIT </a> 
+      <a class="btn btn-danger " href="/pubs/<%=@pub.id%>" data-method="delete" class="btn btn-primary" data-confirm="You're about to delete this post" > DELETE </a> <br><br>
+  <% end %>
+      <a  href="/pubs/<%=@pub.id%>/answers/new" class="btn btn-primary float-left" > Say something </a> 
+  </div>
+
 </div>
 
-
-
-
-
-
-
-<div class="col-md-12">
-    <% if user_signed_in? && @pub.user_id == current_user.id %> <br>
-
-
-    <button type="button" class="btn btn-danger"> Delete </button>
-    <a  href="/pubs/<%=@pub.id%>/edit/" class="btn btn-primary" > EDIT </a>
-    <a  href="/pubs/<%=@pub.id%>" data-method="delete" class="btn btn-primary" data-confirm="You're about to delete this post" > DELETE </a>
-    
-    
-<% end %>
-    <a  href="/pubs/<%=@pub.id%>/answers/new" class="btn btn-primary" > Say something </a>
-    <p class="link">   <%= link_to "Write an answer", new_pub_answer_path(@pub) %>  </p> <br>
-</div>
+<style>
+  .btn-primary {
+  color: #fff;
+  background-color: #428bca;
+  margin-right: 10px;
+  border-color: #357ebd;
+  float: right;
+}
+</style>
