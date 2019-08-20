@@ -32,10 +32,14 @@
     </div>
 
     <div class="col-md-8">
+        <% if @group.group_pubs.blank? %>
+            <h4> No message </h4>
+        <% end %>
         <% @group.group_pubs.each do |pub| %>
             <div class="alert alert-primary" role="alert">
                     <%= pub.content %>
                     <%= link_to "Edit group_pub", edit_group_group_pub_path(group_id: @group.id, id: pub.id) %>
+                    <%= link_to "Delete", group_group_pub_path(@group.id, pub.id), method: :delete, data: {confirm: "Delete Post"} %>
             </div>
         <% end %>
     </div>

@@ -30,6 +30,13 @@ class GroupPubsController < ApplicationController
         end
     end
 
+    def destroy
+        find_group
+        find_group_pub
+        @group_pub.destroy
+        redirect_to group_path(@group)
+    end
+
     private
     def group_pub_params
         params.require("group_pub").permit(:content)
