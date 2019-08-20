@@ -2,19 +2,21 @@
 
 <div class="row row-one">
         <div class="col-md-4">
-                <p> Group Name: </p> <%= @group.name %>
+                <p> Goup Name </p>
+                <h4 class="font-weight-bold"> <%= @group.name %> </h4> 
+                <br>   
                 <p> Group Admin </p>
-                <%= @group.users.first.name %>
+                <h4 class="font-weight-bold"> <%= @group.users.first.name %> </h4>
         </div>
         
         <div class="col-md-4">
-                <h4> Group Description: </h4> <%= @group.description %> <br>
+                <h4 class="font-weight-bold" > Group Description </h4> <%= @group.description %> <br>
                 <h3\> Add User: </h3> <br>
                 <%= render partial: 'add_member_form', locals: {group: @group} %>
         </div>
         
         <div class="col-md-4">
-                <h2> Group Members </h2>
+                <h4 class="font-weight-bold" > Group Members </h4>
                 <% @group.users.each do |user| %>
                     <%= user.name %>
                 <% end %>        
@@ -33,6 +35,7 @@
         <% @group.group_pubs.each do |pub| %>
             <div class="alert alert-primary" role="alert">
                     <%= pub.content %>
+                    <%= link_to "Edit group_pub", edit_group_group_pub_path(group_id: @group.id, id: pub.id) %>
             </div>
         <% end %>
     </div>

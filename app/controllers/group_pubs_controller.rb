@@ -16,9 +16,31 @@ class GroupPubsController < ApplicationController
         end
     end
 
+    def edit
+        find_group
+        find_group_pub
+    end
+
+    def update 
+         find_group
+        find_group_pub
+        @group_pub.update(group_pub_params)
+        if @group_pub.save 
+            redirect_to group_path(@group)
+        end
+    end
+
     private
     def group_pub_params
         params.require("group_pub").permit(:content)
+    end
+
+    def find_group
+        @group = Group.find(params[:group_id])
+    end
+
+    def find_group_pub
+        @group_pub = GroupPub.find(params[:id])
     end
 
 
