@@ -28,8 +28,8 @@
                   <% end %>
                   <div class="dropdown-content">
                       <% if !user_signed_in? %>
-                      <li><a class="dropdown-item" href="users/sign_up">Sign up</a></li>
-                      <li><a class="dropdown-item" href="users/sign_in">Sign in</a></li>
+                      <li><a class="dropdown-item" href="/users/sign_up">Sign up</a></li>
+                      <li><a class="dropdown-item" href="/users/sign_in">Sign in</a></li>
                       <% else %>
                       <li><div class="dropdown-divider"></div></li>
                       <li><a class="dropdown-item" data-method="delete" href="/users/sign_out" bg-dark >Sign out</a></li>

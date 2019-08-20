@@ -2,6 +2,10 @@
                 <div class="alert alert-info" role="alert">
                     <p> <%= answer.user.name %> </p>
                     <%= answer.updated_at %>
-                    <p class="dl" > <%= answer.content %> </p>    
+                    <p class="text-dark font-weight-bold" > <%= answer.content %> </p>    
+
+                    <br>
+                    <%= link_to "Edit", edit_pub_answer_path(answer.pub, answer) %> |
+                    <%= link_to "Delete", pub_answer_path(answer.pub, answer), method: :delete, data:{confirm: "Delete ?"} %>
                 </div>
 

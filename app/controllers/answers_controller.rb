@@ -1,10 +1,15 @@
 class AnswersController < ApplicationController
 
-  before_action :find_pub, only: [:new,]
+  before_action :find_pub, only: [:new]
 
   def new
     find_pub
     @answer = @pub.answers.build
+  end
+
+  def edit
+    @pub = Pub.find(params[:pub_id])
+    @answer = Answer.find(params[:id])
   end
 
   def create
@@ -16,6 +21,20 @@ class AnswersController < ApplicationController
       #raise @answer.inspect
       redirect_to pub_path(@pub)
     end
+  end
+
+  def update
+    @pub = Pub.find(params[:pub_id])
+    @answer = Answer.find(params[:id])
+    @answer = @answer.update(answer_params)
+      redirect_to pub_path(@pub)
+  end
+
+  def destroy
+    @pub = Pub.find(params[:pub_id])
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to pub_path(@pub)
   end
 
   private
