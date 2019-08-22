@@ -1,24 +1,13 @@
 # README
+Description
+Language Learners can share and ask questions. That's a place where you can come and find people interested in the same language as you and engage in productive conversations through groups.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Author :
+Ricardo Paul
 
-* Ruby version
+Build with:
+Rails
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License :
+https://opensource.org/licenses/MIT
