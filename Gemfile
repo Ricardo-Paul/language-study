@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'simple_form', '~> 4.1'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem "table_print"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
